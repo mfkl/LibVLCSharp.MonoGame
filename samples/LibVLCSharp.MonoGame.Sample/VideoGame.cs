@@ -39,8 +39,12 @@ namespace LibVLCSharp.MonoGame.Sample
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            _videoTexture ??= _videoSurface.GetTexture(GraphicsDevice);
-            if (_videoTexture != null && _videoSurface.UpdateTexture(_videoTexture))
+            // Re-fetch texture each frame in case video dimensions changed
+            var texture = _videoSurface.GetTexture();
+            if (texture != _videoTexture)
+                _videoTexture = texture;
+
+            if (_videoTexture != null && _videoSurface.UpdateTexture())
             {
                 _frameCount++;
                 Console.WriteLine($"[VideoGame] Frame {_frameCount} updated ({_videoTexture.Width}x{_videoTexture.Height})");
