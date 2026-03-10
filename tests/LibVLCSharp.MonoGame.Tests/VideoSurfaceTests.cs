@@ -32,8 +32,8 @@ namespace LibVLCSharp.MonoGame.Tests
             },
             (graphicsDevice, videoSurface, gameTime) =>
             {
-                var texture = videoSurface.GetTexture(graphicsDevice);
-                if (texture != null && videoSurface.UpdateTexture(texture))
+                var texture = videoSurface.GetTexture();
+                if (texture != null && videoSurface.UpdateTexture())
                 {
                     receivedFrame = true;
                     frameWidth = texture.Width;
