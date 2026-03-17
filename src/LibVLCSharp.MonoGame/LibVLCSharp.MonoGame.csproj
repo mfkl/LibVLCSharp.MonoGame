@@ -4,20 +4,21 @@
     <TargetFramework>net8.0-windows</TargetFramework>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 
-    <!-- NuGet package metadata -->
     <PackageId>LibVLCSharp.MonoGame</PackageId>
     <Version>0.1.0</Version>
-    <Authors>VideoLabs</Authors>
+    <Authors>VideoLAN</Authors>
     <Description>MonoGame integration for LibVLCSharp. Enables hardware-accelerated video playback in MonoGame applications via D3D11 shared textures.</Description>
     <PackageLicenseExpression>LGPL-2.1-or-later</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/mfkl/LibVLCSharp.MonoGame</PackageProjectUrl>
     <RepositoryUrl>https://github.com/mfkl/LibVLCSharp.MonoGame</RepositoryUrl>
     <PackageTags>vlc;libvlc;libvlcsharp;monogame;video;d3d11</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageIcon>icon.png</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
     <None Include="../../README.md" Pack="true" PackagePath="/" />
+    <None Include="../../icon.png" Pack="true" PackagePath="/" />
   </ItemGroup>
 
   <ItemGroup>
