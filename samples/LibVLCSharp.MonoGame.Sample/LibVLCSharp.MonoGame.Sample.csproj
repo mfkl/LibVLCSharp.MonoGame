@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\LibVLCSharp.MonoGame\LibVLCSharp.MonoGame.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="VideoLAN.LibVLC.Windows" Version="4.0.0-alpha-20240819" />
+  </ItemGroup>
+
+</Project>
