@@ -22,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="MonoGame.Framework.WindowsDX" Version="3.8.4.1" />
+    <PackageReference Include="MonoGame.Framework.WindowsDX" Version="3.8.5" />
     <PackageReference Include="LibVLCSharp" Version="4.0.0-alpha-20260317-9755" />
   </ItemGroup>
 

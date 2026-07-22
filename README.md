@@ -8,7 +8,7 @@ Uses Direct3D 11 shared textures to transfer video frames from VLC to MonoGame w
 
 - .NET 8.0+
 - Windows (DirectX backend)
-- MonoGame 3.8.4+ (WindowsDX)
+- MonoGame 3.8.5+ (WindowsDX)
 - LibVLCSharp 4.x and LibVLC 4.x runtime
 
 ## Installation
@@ -49,8 +49,8 @@ protected override void Draw(GameTime gameTime)
 {
     GraphicsDevice.Clear(Color.Black);
 
-    var texture = _videoSurface.GetTexture(GraphicsDevice);
-    if (texture != null && _videoSurface.UpdateTexture(texture))
+    var texture = _videoSurface.GetTexture();
+    if (texture != null && _videoSurface.UpdateTexture())
     {
         _spriteBatch.Begin();
         _spriteBatch.Draw(texture, GraphicsDevice.Viewport.Bounds, Color.White);
@@ -71,11 +71,7 @@ protected override void UnloadContent()
 
 ## How it works
 
-`VideoSurface` creates a secondary D3D11 device for VLC and a shared texture accessible by both devices. VLC renders directly to this texture via its D3D11 output callbacks. MonoGame opens the same texture through a shared NTHANDLE and performs a single GPU-to-GPU copy (`CopyResource`) each frame to make the video available as a standard `Texture2D`. There is no CPU readback involved, so performance stays well within budget for real-time rendering.
-
-### Zero-copy path (pending)
-
-The [`perf/no-gpu-copy`](https://github.com/mfkl/LibVLCSharp.MonoGame/tree/perf/no-gpu-copy) branch eliminates even the per-frame GPU copy by wrapping the shared texture directly as a MonoGame `Texture2D`. This relies on a proposed `Texture2D.FromSharedHandle` API that is not yet available in a released MonoGame version. Once the upstream MonoGame PR is merged and released, this branch will be integrated into master.
+`VideoSurface` creates a secondary D3D11 device for VLC and a shared texture accessible by both devices. VLC renders directly to this texture via its D3D11 output callbacks. MonoGame opens the same texture through a shared NTHANDLE and wraps it as a standard `Texture2D`, so each frame is rendered without a CPU roundtrip or an additional GPU copy.
 
 ## Building from source
 

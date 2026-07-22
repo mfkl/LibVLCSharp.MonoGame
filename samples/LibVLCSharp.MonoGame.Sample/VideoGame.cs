@@ -31,7 +31,7 @@ namespace LibVLCSharp.MonoGame.Sample
             _videoSurface = new VideoSurface(GraphicsDevice, _mediaPlayer);
 
             _mediaPlayer.Media = new Media(new Uri(
-                "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"));
+                "https://archive.org/download/BigBuckBunny_328/BigBuckBunny.avi"));
             _mediaPlayer.Play();
         }
 

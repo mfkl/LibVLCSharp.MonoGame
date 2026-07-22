@@ -10,7 +10,7 @@ namespace LibVLCSharp.MonoGame.Tests
     public class VideoSurfaceTests
     {
         private const string TestVideoUrl =
-            "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4";
+            "https://archive.org/download/BigBuckBunny_328/BigBuckBunny.avi";
 
         [Fact]
         public void EndToEnd_VideoPlaysAndProducesFrames()
